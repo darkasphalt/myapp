@@ -17,7 +17,8 @@ repositories {
 
 dependencies {
     implementation("org.apache.logging.log4j:log4j-core:2.14.1")
-    implementation("org.apache.logging.log4j:log4j-slf4j-impl:2.14.1")
+    implementation("org.slf4j:slf4j-api:1.7.32")
+    testImplementation("org.slf4j:slf4j-log4j12:1.7.32")
 }
 
 val mainClassName = "mypackage.Hello"
