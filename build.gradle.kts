@@ -13,13 +13,11 @@ plugins {
 
 repositories {
     mavenCentral()
-    maven {
-        url = uri("https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage")
-    }
 }
 
 dependencies {
-    implementation("com.azure:azure-storage-blob:12.12.0")
+    implementation("org.apache.logging.log4j:log4j-core:2.14.1")
+    implementation("org.apache.logging.log4j:log4j-slf4j-impl:2.14.1")
 }
 
 val mainClassName = "mypackage.Hello"
@@ -29,8 +27,6 @@ tasks.jar {
         put("Class-Path", configurations.runtimeClasspath.get().asPath)
         put("Main-Class", mainClassName)
     }
-
-    from(configurations.compileClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
 }
 
 tasks.test {
